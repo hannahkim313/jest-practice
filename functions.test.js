@@ -1,4 +1,4 @@
-import { capitalize, reverseString } from './functions';
+import { capitalize, reverseString, calculator } from './functions';
 
 test('capitalize word', () => {
   expect(capitalize('bee')).toBe('Bee');
@@ -22,4 +22,20 @@ test('reverse word', () => {
 
 test('reverse word', () => {
   expect(reverseString('high five')).toBe('evif hgih');
+});
+
+test('add two numbers', () => {
+  expect(calculator.add(1, 2)).toBe(3);
+});
+
+test('subtract two numbers', () => {
+  expect(calculator.subtract(40, 60)).toBe(-20);
+});
+
+test('multiply two numbers', () => {
+  expect(calculator.multiply(10, 4)).toBe(40);
+});
+
+test('divide two numbers', () => {
+  expect(calculator.divide(5, 2)).toBe(2.5);
 });
