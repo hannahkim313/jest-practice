@@ -1,4 +1,9 @@
-import { capitalize, reverseString, calculator } from './functions';
+import {
+  capitalize,
+  reverseString,
+  calculator,
+  caesarCipher,
+} from './functions';
 
 test('capitalize word', () => {
   expect(capitalize('bee')).toBe('Bee');
@@ -38,4 +43,12 @@ test('multiply two numbers', () => {
 
 test('divide two numbers', () => {
   expect(calculator.divide(5, 2)).toBe(2.5);
+});
+
+test('caesar cipher', () => {
+  expect(caesarCipher('zebra', 1)).toBe('afcsb');
+});
+
+test('caesar cipher', () => {
+  expect(caesarCipher('Hello World!', 5)).toBe('Mjqqt Btwqi!');
 });

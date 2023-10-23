@@ -17,4 +17,32 @@ const calculator = {
   divide: divide,
 };
 
-export { capitalize, reverseString, calculator };
+const getShiftedIndex = (index, shift) => {
+  if (index + shift > 25) {
+    return index + shift - 26;
+  }
+
+  return index + shift;
+};
+
+const caesarCipher = (string, shift) => {
+  const lowerAlphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const upperAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const chars = string.split('');
+
+  chars.forEach((char, index) => {
+    if (lowerAlphabet.includes(char)) {
+      const indexOfChar = lowerAlphabet.indexOf(char);
+      chars[index] = lowerAlphabet[getShiftedIndex(indexOfChar, shift)];
+    }
+
+    if (upperAlphabet.includes(char)) {
+      const indexOfChar = upperAlphabet.indexOf(char);
+      chars[index] = upperAlphabet[getShiftedIndex(indexOfChar, shift)];
+    }
+  });
+
+  return chars.join('');
+};
+
+export { capitalize, reverseString, calculator, caesarCipher };
